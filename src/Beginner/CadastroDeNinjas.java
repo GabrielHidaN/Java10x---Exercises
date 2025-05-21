@@ -17,6 +17,7 @@ public class CadastroDeNinjas {
         int quantityOfNinja = 0;
         int option = 0 ;
 
+        // menu
         String menu = """
                 ===== Cadastro de Ninjas =====
                 1. Cadastrar Ninja
@@ -24,13 +25,16 @@ public class CadastroDeNinjas {
                 3. Sair
                 =>""";
 
+
         while (option != 3){
             System.out.print(menu);
 
 
+            // Try para garantir que o valor enviado não retorne um erro
             try {
                 option = sc.nextInt();
-            } catch (InputMismatchException e){
+            } //InputMismatchException Ocorre  quando o Scanner tenta ler um tipo de dado que não corresponde ao esperado
+            catch (InputMismatchException e){
                 sc.nextLine(); // Limpa o buffer do scanner
                 option = 0;
             }
