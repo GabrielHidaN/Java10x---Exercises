@@ -33,7 +33,7 @@ public class CadastroDeNinjas {
             // Try para garantir que o valor enviado não retorne um erro
             try {
                 option = sc.nextInt();
-            } //InputMismatchException Ocorre  quando o Scanner tenta ler um tipo de dado que não corresponde ao esperado
+            } //InputMismatchException Ocorre quando o Scanner tenta ler um tipo de dado que não corresponde ao esperado
             catch (InputMismatchException e){
                 sc.nextLine(); // Limpa o buffer do scanner
                 option = 0;
