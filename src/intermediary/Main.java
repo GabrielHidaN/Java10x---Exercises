@@ -8,7 +8,6 @@ public class Main {
 
         // Ninjas of Array
         int maxNinjas = 3;
-        String[] ninjasCadastred = new String [maxNinjas];
         int quantityOfNinjas = 0;
 
         // Quantidade de ninja por clã (Só podera armazenar um ninja por clã)
@@ -25,7 +24,12 @@ public class Main {
 
         // Menu Of Options
         String menu = """
-                ========== Ninjas ==========
+                
+               #######################################
+               ++++++++++                +++++++++++++
+               ========== Ninjas Manager =============
+               ++++++++++                +++++++++++++
+               #######################################
                 
                 1. Exibir Informações Dos Ninjas
                 
@@ -47,9 +51,7 @@ public class Main {
                             System.out.println("@@@ Nenhum Ninja Registrado @@@");
                         }
                         else {
-                            for (int i = 0; i < quantityOfNinjas; i++) {
-                                System.out.println("Ninja["+(i + 1)+"] " + ninjasCadastred[i] );
-                            }
+                            System.out.println("...");
                         }
                         break;
                     case 2:
@@ -70,7 +72,6 @@ public class Main {
                                             uchiha.name = sc.next();
                                             System.out.println("Digite a Idade do Ninja: ");
                                             uchiha.age = sc.nextInt();
-                                            ninjasCadastred[quantityOfNinjas] = uchiha.name;
                                             ninjaUchiha ++;
                                             quantityOfNinjas ++;
                                         }
@@ -85,7 +86,6 @@ public class Main {
                                             uzumaki.name = sc.next();
                                             System.out.println("Digite a Idade do Ninja: ");
                                             uzumaki.age = sc.nextInt();
-                                            ninjasCadastred[quantityOfNinjas] = uzumaki.name;
                                             ninjaUzumaki ++;
                                             quantityOfNinjas ++;
                                         }
@@ -101,7 +101,6 @@ public class Main {
                                             hyuuga.name = sc.next();
                                             System.out.println("Digite a Idade do Ninja: ");
                                             hyuuga.age = sc.nextInt();
-                                            ninjasCadastred[quantityOfNinjas] = hyuuga.name;
                                             ninjaHyuuga ++;
                                             quantityOfNinjas ++;
                                         }
