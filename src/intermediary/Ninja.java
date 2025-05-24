@@ -3,8 +3,9 @@ package intermediary;
 public class Ninja {
     String name;
     int age;
-    String mission;
-    String  levelDifficulty;
+    String level = "Gennin";
+    String mission = null;
+    String  levelDifficulty = null;
     boolean missionConcluded = false;
 
 
