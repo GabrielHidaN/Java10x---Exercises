@@ -35,14 +35,12 @@ public class Main {
         String menu = """
                
                #######################################
-               ++++++++++                +++++++++++++
                ========== Ninjas Manager =============
-               ++++++++++                +++++++++++++
                #######################################
                
                 1. Exibir Informações Dos Ninjas
                
-                2. Editar Informações do Ninja
+                2. Gerenciar Ninja
                
                 3. Sair
                
@@ -58,10 +56,27 @@ public class Main {
                 option = sc.nextInt();
                 switch (option){
                     case 1:
+                        System.out.println("============================================================================");
                         System.out.printf("Nome: %s \n", uzumaki.name);
                         System.out.printf("Idade: %d \n", uzumaki.age);
                         System.out.printf("Level: %s \n", uzumaki.level);
-                        System.out.printf("Mission: %s \n", uzumaki.mission(uzumaki.mission));
+                        System.out.printf("Missão: %s \n", uzumaki.mission(uzumaki.mission));
+                        System.out.printf("Missões Completadas: %d \n", uzumaki.missionsCompleted);
+
+                        System.out.println("============================================================================");
+                        System.out.printf("Nome: %s \n", uchiha.name);
+                        System.out.printf("Idade: %d \n", uchiha.age);
+                        System.out.printf("Level: %s \n", uchiha.level);
+                        System.out.printf("Missão: %s \n", uchiha.mission(uchiha.mission));
+                        System.out.printf("Missões Completadas: %d \n", uchiha.missionsCompleted);
+
+                        System.out.println("============================================================================");
+                        System.out.printf("Nome: %s \n", hyuuga.name);
+                        System.out.printf("Idade: %d \n", hyuuga.age);
+                        System.out.printf("Level: %s \n", hyuuga.level);
+                        System.out.printf("Missão: %s \n", hyuuga.mission(hyuuga.mission));
+                        System.out.printf("Missões Completadas: %d \n", hyuuga.missionsCompleted);
+
                 }
 
             }catch (InputMismatchException e){
