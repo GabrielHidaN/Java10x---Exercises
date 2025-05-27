@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void manageNinja(int ninjaSelected){
+    public static int manageNinja(){
+        int optionManage = 0;
         System.out.println("====== Escolha uma das opções Abaixo: ");
         System.out.println("""
                 
@@ -13,6 +14,16 @@ public class Main {
                 2. Concluir Missão
                 3. Ativar Habilidade Especial
                 ==>""");
+        Scanner sc = new Scanner(System.in);
+        try {
+            optionManage = sc.nextInt();
+
+            return optionManage;
+        }catch (InputMismatchException e){
+            sc.nextLine();
+        }
+        sc.close();
+        return optionManage;
     }
 
     public static void main(String[] args) {
@@ -72,7 +83,9 @@ public class Main {
                         System.out.printf("Idade: %d \n", uzumaki.age);
                         System.out.printf("Level: %s \n", uzumaki.getLevel(uzumaki.missionsCompleted , uzumaki.levelNinja));
                         System.out.printf("Missão: %s \n", uzumaki.getMission(uzumaki.mission));
+                        System.out.printf("Level da Missão: %s \n", uzumaki.levelDifficulty);
                         System.out.printf("Missões Completadas: %d \n", uzumaki.missionsCompleted);
+                        System.out.printf("%s ativado ? %s \n", uzumaki.habilidade ,uzumaki.skillAtivated);
 
 
 
@@ -82,7 +95,9 @@ public class Main {
                         System.out.printf("Idade: %d \n", uchiha.age);
                         System.out.printf("Level: %s \n", uchiha.getLevel(uchiha.missionsCompleted , uchiha.levelNinja));
                         System.out.printf("Missão: %s \n", uchiha.getMission(uchiha.mission));
+                        System.out.printf("Level da Missão: %s \n", uchiha.levelDifficulty);
                         System.out.printf("Missões Completadas: %d \n", uchiha.missionsCompleted);
+
 
 
                         //Neji
@@ -91,6 +106,7 @@ public class Main {
                         System.out.printf("Idade: %d \n", hyuuga.age);
                         System.out.printf("Level: %s \n", hyuuga.getLevel(hyuuga.missionsCompleted , hyuuga.levelNinja));
                         System.out.printf("Missão: %s \n", hyuuga.getMission(hyuuga.mission));
+                        System.out.printf("Level da Missão: %s \n", hyuuga.levelDifficulty);
                         System.out.printf("Missões Completadas: %d \n", hyuuga.missionsCompleted);
 
 
@@ -104,15 +120,80 @@ public class Main {
 
                         switch (controlOfMenu){
 
-
-
                             case 1:
-                                System.out.println("Qual Ninja Você Deseja Gerenciar ?");
-                                System.out.printf("1. %s \n", uzumaki.name);
-                                System.out.printf("2. %s \n", uchiha.name);
-                                System.out.printf("3. %s \n", hyuuga.name);
-                                int ninjaSelected = sc.nextInt();
+                                int manageNinja = manageNinja();
+                                if(manageNinja == 1){
+                                    System.out.println("Qual Ninja Deseja Atribuir: ");
+                                    System.out.printf("1. %s \n", uzumaki.name);
+                                    System.out.printf("2. %s \n", uchiha.name);
+                                    System.out.printf("3. %s \n", hyuuga.name);
 
+                                    int ninjaSelected = sc.nextInt();
+                                    switch (ninjaSelected){
+                                        case 1:
+                                            uzumaki.setNewMission(uzumaki.mission, uzumaki.missionsCompleted);
+                                            System.out.println("Missão Adicionada Com Sucesso");
+                                            break;
+                                        case 2:
+                                            uchiha.setNewMission(uchiha.mission, uchiha.missionsCompleted);
+                                            System.out.println("Missão Adicionada Com Sucesso");
+                                            break;
+                                        case 3:
+                                            hyuuga.setNewMission(hyuuga.mission, hyuuga.missionsCompleted);
+                                            System.out.println("Missão Adicionada Com Sucesso");
+                                            break;
+                                        default:
+                                            System.out.println("Falha ao Atribuir Missão");
+                                            break;
+                                    }
+
+                                } else if (manageNinja == 2) {
+                                    System.out.println("Qual Ninja Deseja Atribuir: ");
+                                    System.out.printf("1. %s \n", uzumaki.name);
+                                    System.out.printf("2. %s \n", uchiha.name);
+                                    System.out.printf("3. %s \n", hyuuga.name);
+
+                                    int ninjaSelected = sc.nextInt();
+
+                                    switch (ninjaSelected){
+                                        case 1:
+                                            uzumaki.concludeMission();
+
+                                            break;
+                                        case 2:
+                                            uchiha.concludeMission();
+                                            break;
+                                        case 3:
+                                            hyuuga.concludeMission();
+                                            break;
+                                        default:
+                                            System.out.println("Falha ao Concluir Missão");
+                                            break;
+                                    }
+                                } else if (manageNinja == 1) {
+                                    System.out.println("Qual Ninja Deseja Atribuir: ");
+                                    System.out.printf("1. %s \n", uzumaki.name);
+                                    System.out.printf("2. %s \n", uchiha.name);
+                                    System.out.printf("3. %s \n", hyuuga.name);
+
+                                    int ninjaSelected = sc.nextInt();
+
+                                    switch (ninjaSelected){
+                                        case 1:
+                                            uzumaki.ativateSkill(uzumaki.skillAtivated);
+
+                                            break;
+                                        case 2:
+                                            uchiha.ativateSkill(uchiha.skillAtivated);
+                                            break;
+                                        case 3:
+                                            hyuuga.ativateSkill(hyuuga.skillAtivated);
+                                            break;
+                                        default:
+                                            System.out.println("Falha ao Ativar Habilidade Especial");
+                                            break;
+                                    }
+                                }
 
                             case 2:
                                 continue;
@@ -120,11 +201,7 @@ public class Main {
                                 System.out.println("Opção Inválida!");
                                 break;
                         }
-
-
-
                         break;
-
 
                     case 3:
                         continue;
@@ -142,6 +219,3 @@ public class Main {
         sc.close();
     }
 }
-
-
-// Terminar o Painel de Controler de qual ninja ira fazer tal ação
