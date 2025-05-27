@@ -10,7 +10,7 @@ public class Uchiha extends Ninja{
 
         if (!skillAtivated){
             System.out.println("Sharigan Ativado com Sucesso");
-            skillAtivated = true;
+            this.skillAtivated = true;
         }else {
             System.out.println("O Sharigan Já Está Ativado");
         }
@@ -21,7 +21,7 @@ public class Uchiha extends Ninja{
 
         if (skillAtivated){
             System.out.println("Sharigan Desativado com Sucesso");
-            skillAtivated = false;
+            this.skillAtivated = false;
         }else {
             System.out.println("O Sharigan Já Está Desativado");
         }

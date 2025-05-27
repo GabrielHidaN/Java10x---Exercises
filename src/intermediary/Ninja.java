@@ -16,21 +16,27 @@ public class Ninja {
         this.missionsCompleted = missionsCompleted;
 
         if (missionsCompleted == 0){
-           levelNinja = "Genin";
+           this.levelNinja = "Genin";
         }
-        else if (missionsCompleted >= 1 && missionsCompleted <4){
-            levelNinja = "Chuunin";
+        else if (missionsCompleted > 0 && missionsCompleted <3){
+            this.levelNinja = "Chuunin";
         } else{
-            levelNinja = "Jounin";
+            this.levelNinja = "Jounin";
         }
-        return levelNinja;
+        return this.levelNinja;
 
     }
 
     public void concludeMission(){
-        missionsCompleted ++;
-        missionConcluded = true;
-        System.out.println("Missão Concluída Com Sucesso!");
+        if(this.mission == null){
+            System.out.println("Você Não Tem Missão Ativa No momento");
+        }else {
+            missionsCompleted ++;
+            missionConcluded = true;
+            System.out.println("Missão Concluída Com Sucesso!");
+            levelDifficulty = "Sem Missão";
+            mission = null;
+        }
     }
 
 
@@ -44,29 +50,31 @@ public class Ninja {
         }
     }
 
-    public void setNewMission(String levelNinja , int missionsCompleted){
+    public void setNewMission(String levelNinja , int missionsCompleted) {
 
-
-        if(this.levelNinja != null && this.levelNinja.equals("Genin")){
-            levelDifficulty = "D";
-            mission = "Ajudar na colheita ou agricultura.";
-        } else if (this.levelNinja != null && this.levelNinja.equals("Chuunin")){
-            if (missionsCompleted <3){
-                levelDifficulty = "C";
-                mission = "Liderar uma escolta para uma caravana.";
-            }else {
-                levelDifficulty = "B";
-                mission = "Liderar uma missão de reconhecimento em território desconhecido.";
+        if (mission == null) {
+            if (this.levelNinja != null && this.levelNinja.equals("Genin")) {
+                levelDifficulty = "D";
+                mission = "Ajudar na colheita ou agricultura.";
+            } else if (this.levelNinja != null && this.levelNinja.equals("Chuunin")){
+                if (missionsCompleted == 1) {
+                    levelDifficulty = "C";
+                    mission = "Liderar uma escolta para uma caravana.";
+                } else {
+                    levelDifficulty = "B";
+                    mission = "Liderar uma missão de reconhecimento em território desconhecido.";
+                }
+            } else if (this.levelNinja != null && this.levelNinja.equals("Jounin")) {
+                if (missionsCompleted < 4) {
+                    levelDifficulty = "A";
+                    mission = "Infiltração em vilas inimigas.";
+                } else {
+                    levelDifficulty = "S";
+                    mission = "Captura de membros da Akatsuki.";
+                }
             }
-        } else if (this.levelNinja != null && this.levelNinja.equals("Jounin")){
-            if (missionsCompleted < 5){
-                levelDifficulty = "A";
-                mission = "Infiltração em vilas inimigas.";
-            }
-            else {
-                levelDifficulty = "S";
-                mission = "Captura de membros da Akatsuki.";
-            }
+        } else {
+            System.out.println("O Ninja Tem Uma Missão em Andamento");
         }
     }
 }

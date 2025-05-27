@@ -11,7 +11,7 @@ public class Uzumaki extends  Ninja{
 
         if (!skillAtivated){
             System.out.println("Chakra Ativado com Sucesso");
-            skillAtivated = true;
+            this.skillAtivated = true;
         }else {
             System.out.println("O Chakra Já Está Ativado");
         }
@@ -22,7 +22,7 @@ public class Uzumaki extends  Ninja{
 
         if (skillAtivated){
             System.out.println("Chakra Desativado com Sucesso");
-            skillAtivated = false;
+            this.skillAtivated = false;
         }else {
             System.out.println("O Chakra Já Está Desativado");
         }
