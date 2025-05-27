@@ -2,22 +2,30 @@ package intermediary;
 
 public class Uzumaki extends  Ninja{
 
+    public String habilidade = "Chakra";
 
-    public String habilidade = "Shakara";
+    boolean skillAtivated = false;
 
+    public void ativateSkill(boolean skillAtivated){
+        this.skillAtivated = skillAtivated;
 
-    public String mission(String mission){
-        this.mission = mission;
-        if (mission == null){
-            return "Esse Ninja Ainda Não tem uma Missão";
-        }
-        else {
-            return mission;
+        if (!skillAtivated){
+            System.out.println("Chakra Ativado com Sucesso");
+            skillAtivated = true;
+        }else {
+            System.out.println("O Chakra Já Está Ativado");
         }
     }
 
+    public void desativateSkill(boolean skillAtivated){
+        this.skillAtivated = skillAtivated;
 
-    public void showInformation(){
-        System.out.println(".....");
+        if (skillAtivated){
+            System.out.println("Chakra Desativado com Sucesso");
+            skillAtivated = false;
+        }else {
+            System.out.println("O Chakra Já Está Desativado");
+        }
     }
+
 }

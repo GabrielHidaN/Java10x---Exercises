@@ -2,28 +2,30 @@ package intermediary;
 
 public class Uchiha extends Ninja{
     public String habilidade = "Sharigan";
-    public boolean shariganActivated = false;
 
-    public void showInformation(){
-        System.out.println(".....");
-    }
-    public void ativateSharigan(boolean shariganActivated){
-        if(shariganActivated == true){
-            System.out.println("O Sharingan Já está Ativado");
+    boolean skillAtivated = false;
+
+    public void ativateSkill(boolean skillAtivated){
+        this.skillAtivated = skillAtivated;
+
+        if (!skillAtivated){
+            System.out.println("Sharigan Ativado com Sucesso");
+            skillAtivated = true;
         }else {
-            System.out.println("Sharigan Ativado!");
-            shariganActivated = true;
+            System.out.println("O Sharigan Já Está Ativado");
+        }
+    }
+
+    public void desativateSkill(boolean skillAtivated){
+        this.skillAtivated = skillAtivated;
+
+        if (skillAtivated){
+            System.out.println("Sharigan Desativado com Sucesso");
+            skillAtivated = false;
+        }else {
+            System.out.println("O Sharigan Já Está Desativado");
         }
     }
 
 
-    public String mission(String mission){
-        this.mission = mission;
-        if (mission == null){
-            return "Esse Ninja Ainda Não tem uma Missão";
-        }
-        else {
-            return mission;
-        }
-    }
 }
