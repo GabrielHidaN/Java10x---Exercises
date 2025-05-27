@@ -10,7 +10,7 @@ public class Hyuuga extends Ninja{
 
         if (!skillAtivated){
             System.out.println("Byakugan Ativado com Sucesso");
-            skillAtivated = true;
+            this.skillAtivated = true;
         }else {
             System.out.println("O Byakugan Já Está Ativado");
         }
@@ -21,7 +21,7 @@ public class Hyuuga extends Ninja{
 
         if (skillAtivated){
             System.out.println("Byakugan Desativado com Sucesso");
-            skillAtivated = false;
+            this.skillAtivated = false;
         }else {
             System.out.println("O Byakugan Já Está Desativado");
         }
